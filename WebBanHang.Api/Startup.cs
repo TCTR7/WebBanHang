@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
+using WebBanHang.Api.Extensions;
 
 namespace WebBanHang.Api
 {
@@ -26,6 +28,8 @@ namespace WebBanHang.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +39,8 @@ namespace WebBanHang.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.SwaggerConfiguration();
 
             app.UseHttpsRedirection();
 
